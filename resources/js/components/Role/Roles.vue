@@ -19,16 +19,16 @@
                         {{role.name}}
                     </td>
                     <td>
-                        
+
                         <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="'#role-'+role.id">
                           Edit
                         </button>
                         <button class="btn btn-danger" @click="deleteRole(role)">Delete</button>
                         <role :role='role' @role="updateRole"></role>
                     </td>
-                    
+
                 </tr>
-                
+
             </tbody>
         </table>
     </div>

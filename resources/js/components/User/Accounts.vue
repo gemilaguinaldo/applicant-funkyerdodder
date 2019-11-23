@@ -26,21 +26,21 @@
                     </td>
                     <td>
                         {{account.email}}
-                    </td>  
+                    </td>
                     <td>
                         {{account.role.name}}
                     </td>
                     <td>
-                        
+
                         <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="'#account-'+account.id">
                           Edit
                         </button>
                         <button class="btn btn-danger" @click="deleteAccount(account)">Delete</button>
                         <account :roles="roles" :account='account' @account="updateUsers"></account>
                     </td>
-                    
+
                 </tr>
-                
+
             </tbody>
         </table>
     </div>
@@ -54,8 +54,7 @@
             roles: [],
           }
         },
-        mounted() {
-
+        created() {
             axios.get('user/all').then(response => {
                 this.accounts = response.data;
             });

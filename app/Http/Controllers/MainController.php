@@ -23,12 +23,12 @@ class MainController extends Controller
     function login(Request $request){
     	Auth::attempt($request->all());
     	return $this->getCurrentUser();
-    	
+
     }
 
     function getUserRole(User $user){
     	$user->role = Role::find($user->role_id);
-    	$user->role->access = UserRole::where('role_id',$user->role_id)->pluck('type');
+    	$user->role->access = UserRole::where('role_id',$user->role_id)->pluck('id');
     	return $user;
     }
 
@@ -52,7 +52,7 @@ class MainController extends Controller
     	$users->map(function($user){
     		return $this->getUserRole($user);
     	});
-    	return response()->json($users,200);	
+    	return response()->json($users,200);
     }
 
     function getAllRoles(){
@@ -60,7 +60,7 @@ class MainController extends Controller
     }
 
     function saveAccount(Request $request){
-    	
+
     	if($request->id != 0){
     		$user = User::find($request->id);
     	}else{
@@ -155,8 +155,8 @@ class MainController extends Controller
     	$expense->expense_cat_id = $request->expense_cat_id;
     	$expense->save();
 
-    	$expense->category = ExpenseCategory::find($expense->expense_cat_id);
-		$expense->user = User::find($expense->user_id);
+    	$expense->user = ExpenseCategory::find($expense->expense_cat_id);
+		$expense->category = User::find($expense->user_id);
 
     	return response()->json($expense,200);
     }
@@ -164,14 +164,14 @@ class MainController extends Controller
     function getGraphData(){
     	$expenses = ExpenseCategory::all();
     	$expenses->map(function($expense){
-    		$expense->total = Expense::where('expense_cat_id',$expense->id)->pluck('amount')->sum();
+    		$expense->total = Expense::where('expense_cat_id',$expense->id)->pluck('amount');
     	});
 
     	return response($expenses,200);
     }
 
     function changePassword(Request $request){
-    	
+
     	if(Hash::check($request->password,Auth::user()->password)){
 
 	    	$validate = [

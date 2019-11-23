@@ -48,8 +48,6 @@ Vue.component('user-expense', require('./components/UserExpense/Expense.vue').de
 Vue.component('user-expenses', require('./components/UserExpense/Expenses.vue').default);
 Vue.component('user-newExpense', require('./components/UserExpense/NewExpense.vue').default);
 
-// Chart
-Vue.component('chart', require('./components/Chart.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -59,5 +57,5 @@ Vue.component('chart', require('./components/Chart.vue').default);
 
 const app = new Vue({
     el: '#app',
-    
+
 });

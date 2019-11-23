@@ -30,7 +30,6 @@
 
 <script>
     export default {
-        props: ['expense'],
         data(){
           return{
             id:  this.expense.id,
@@ -38,7 +37,7 @@
           }
         },
         mounted() {
-            
+
         },
         methods: {
             save(){

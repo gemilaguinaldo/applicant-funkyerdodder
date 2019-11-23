@@ -23,7 +23,7 @@
                   <label for="">Amount</label>
                   <input type="number" class="form-control" v-model.number="amount">
               </div>
-                
+
             </form>
           </div>
           <div class="modal-footer">
@@ -46,7 +46,7 @@
           }
         },
         mounted() {
-            
+
         },
         methods: {
             save(){

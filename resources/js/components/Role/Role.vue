@@ -65,7 +65,7 @@
                 axios.post('/roles/save',data).then(response => {
 
                     if(response.status == 200){
-                        this.$emit('role',response.data);
+                        this.$emit('role',response);
                     }
 
                 });

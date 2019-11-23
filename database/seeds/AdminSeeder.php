@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 use App\User;
-Use App\Role;
 use App\UserRole;
 
 class AdminSeeder extends Seeder
@@ -23,7 +21,7 @@ class AdminSeeder extends Seeder
         	'name'		=>	'admin',
         	'email'		=>	'admin@admin.com',
         	'password'	=>	bcrypt('admin'),
-        	'role_id'	=> 	(Role::where('name','Admin')->first())->id
+        	'role_id'	=> 	(Role::where('name','Admin')->first())
         ]);
 
         User::create([
@@ -37,7 +35,7 @@ class AdminSeeder extends Seeder
 		1: 'Expense'
 		2: 'User'
         */
-       
+
        UserRole::create([
        		'role_id'	=> (Role::where('name','Admin')->first())->id,
        		'type'		=> 1,

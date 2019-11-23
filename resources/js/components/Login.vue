@@ -21,7 +21,7 @@
           }
         },
         mounted() {
-            
+
         },
         methods: {
             login(e){

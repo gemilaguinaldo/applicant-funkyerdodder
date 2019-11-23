@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth']],function(){
 
 	Route::group(['prefix' => 'user'],function(){
 		Route::get('all','MainController@getAllUsers');
-		Route::post('save','MainController@saveAccount');
+		Route::get('save','MainController@saveAccount');
 		Route::post('delete','MainController@deleteAccount');
 		Route::post('/changePassword','MainController@changePassword');
 	});

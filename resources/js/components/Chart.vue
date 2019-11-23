@@ -29,7 +29,7 @@ var Chart = require('chart.js');
             });
 
 
-            
+
         },
         methods: {
            updateChart(){

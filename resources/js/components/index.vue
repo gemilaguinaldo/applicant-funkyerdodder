@@ -46,7 +46,7 @@
                 <h5 class="card-title" v-html="title">{{title}}</h5>
                 <div class="card-body">
                     <div class="navigation">
-                        <ul class="nav justify-content-center"> 
+                        <ul class="nav justify-content-center">
                             <li>
                                 <button class="btn btn-primary" value="1" @click="changeNav($event)">Dashboard</button>
                             </li>
